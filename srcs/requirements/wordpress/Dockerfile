@@ -2,7 +2,7 @@
 FROM debian:bullseye
 
 # 패키지 설치
-RUN apt-get update && apt-get upgrade && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     php7.4-fpm \
     php7.4-mysql \
     wget \
