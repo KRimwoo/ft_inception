@@ -10,7 +10,7 @@ else
     BASE_DIR="/home/$USER/wpdata"
 fi
 
-echo "BASE_DIR=$BASE_DIR" > $ENV_FILE
+echo "BASE_DIR=$BASE_DIR" >> $ENV_FILE
 
 # 볼륨 삭제 처리
 if [ "$2" == "--delete" ]; then
