@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -x
 ENV_FILE="srcs/.env"
 
