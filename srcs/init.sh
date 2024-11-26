@@ -13,20 +13,6 @@ fi
 
 echo "BASE_DIR=$BASE_DIR" >> $ENV_FILE
 
-# 볼륨 삭제 처리
-if [ "$2" == "--delete" ]; then
-    echo "Deleting volumes..."
-    rm -rf "$BASE_DIR"
-    echo "Delete COMPLETE"
-
-    if [ -f "$ENV_FILE" ]; then
-        sed -i '' '/^DATA_PATH=/d' "$ENV_FILE"
-    else
-        echo ".env file not found. Skipping DATA_PATH removal."
-    fi
-    exit 0
-fi
-
 if [ ! -d "$BASE_DIR" ]; then
     echo "Creating $BASE_DIR"
     mkdir -p $BASE_DIR/wordpress
