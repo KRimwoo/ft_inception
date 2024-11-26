@@ -52,7 +52,6 @@ services:
     image: nginx
     pull_policy: never
     init: true
-    tty: true
 
 
 volumes:
