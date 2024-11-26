@@ -1,5 +1,6 @@
 #!/bin/sh
-set -x
+# set -x
+
 ENV_FILE="srcs/.env"
 
 if [ "$(uname)" == "Darwin" ]; then

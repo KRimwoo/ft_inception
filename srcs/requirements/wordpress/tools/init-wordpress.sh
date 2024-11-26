@@ -1,6 +1,6 @@
 #!/bin/sh
+# set -x
 
-set -x
 until mysql -h"$WORDPRESS_DB_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" -e "SELECT 1"; do
   echo "Waiting for MariaDB to be ready..."
   sleep 2

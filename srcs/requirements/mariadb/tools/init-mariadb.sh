@@ -1,5 +1,6 @@
 #!/bin/sh
-set -x
+# set -x
+
 echo "Starting init-mariadb.sh"
 
 # 데이터 디렉토리 권한 설정

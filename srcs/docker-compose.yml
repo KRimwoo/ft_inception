@@ -30,6 +30,7 @@ services:
     depends_on:
       - mariadb
     image: wordpress
+    init: true
     pull_policy: never
 
 
@@ -49,6 +50,7 @@ services:
     depends_on:
       - wordpress
     image: nginx
+    init: true
     tty: true
 
 

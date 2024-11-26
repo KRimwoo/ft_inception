@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+# set -x
 
 SSL_DIR="/etc/nginx/ssl"
 DOMAIN="$DOMAIN"
