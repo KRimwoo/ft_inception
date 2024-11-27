@@ -1,5 +1,8 @@
 DOCKER_COMPOSE = docker-compose -f srcs/docker-compose.yml
 INIT_SCRIPT = srcs/init.sh
+ENV_FILE = srcs/.env
+
+BASE_DIR = $(shell source $(ENV_FILE) && echo $$BASE_DIR)
 
 all: init up
 
@@ -15,14 +18,12 @@ down:
 clean: down
 	@docker system prune --all --force
 
-fclean: clean
-	@docker system prune --volumes --force --all
+fclean:
+	@$(DOCKER_COMPOSE) down -v
+	@docker system prune --all --volumes --force
 	@docker network prune --force
-	@docker volume prune --force
-	@sudo rm -rf ~/data/wordpress
-	@sudo rm -rf ~/data/mariadb
+	@sudo rm -rf $(BASE_DIR)
 
-re: fclean 
-	@$(DOCKER_COMPOSE) up -d --build
+re: fclean all
 
 .PHONY: all init up down clean fclean re

@@ -11,6 +11,12 @@ else
     BASE_DIR="/home/$USER/wpdata"
 fi
 
+if [ -f "$ENV_FILE" ]; then
+    sed -i '' '/^BASE_DIR=/d' "$ENV_FILE"
+else
+    echo ".env file not found."
+fi
+
 echo "BASE_DIR=$BASE_DIR" >> $ENV_FILE
 
 if [ ! -d "$BASE_DIR" ]; then
@@ -19,17 +25,4 @@ if [ ! -d "$BASE_DIR" ]; then
     mkdir -p $BASE_DIR/mariadb
     chown -R $USER:$USER $BASE_DIR
     chmod -R 777 $BASE_DIR
-fi
-
-if [ -f "$ENV_FILE" ]; then
-    sed -i '' '/^DATA_PATH=/d' "$ENV_FILE"
-else
-    echo ".env file not found."
-fi
-
-if ! grep -q "DATA_PATH=" "$ENV_FILE"; then
-    if [ -s "$ENV_FILE" ] && [ "$(tail -c 1 "$ENV_FILE" | wc -l)" -eq 0 ]; then
-        echo "" >> $ENV_FILE
-    fi
-    echo "DATA_PATH=$BASE_DIR" >> "$ENV_FILE"
 fi

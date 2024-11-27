@@ -30,7 +30,6 @@ RUN mkdir -p /var/www/html && \
     sed -i "s/listen = .*/listen = 9000/" /etc/php/7.4/fpm/pool.d/www.conf
 
 
-
 RUN mkdir -p /var/run/php && \
     chown -R www-data:www-data /var/run/php && \
     chmod +x /init-wordpress.sh

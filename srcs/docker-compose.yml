@@ -71,8 +71,7 @@ volumes:
       device: ${BASE_DIR}/wordpress
       o: bind
 
-  
-    
+
 networks:
   inception-network:
     driver: bridge

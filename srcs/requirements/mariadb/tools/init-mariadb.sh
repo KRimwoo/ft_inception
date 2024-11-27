@@ -3,9 +3,6 @@
 
 echo "Starting init-mariadb.sh"
 
-# 데이터 디렉토리 권한 설정
-chown -R mysql:mysql /var/lib/mysql
-
 # 네트워크 연결 없이 서버 시작
 mysqld_safe --skip-networking --nowatch
 
