@@ -2,7 +2,7 @@ DOCKER_COMPOSE = docker-compose -f srcs/docker-compose.yml
 INIT_SCRIPT = srcs/init.sh
 ENV_FILE = srcs/.env
 
-BASE_DIR = $(shell source $(ENV_FILE) && echo $$BASE_DIR)
+BASE_DIR = $(shell . $(ENV_FILE) && echo $$BASE_DIR)
 
 all: init up
 

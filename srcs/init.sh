@@ -5,10 +5,10 @@ ENV_FILE="srcs/.env"
 
 if [ "$(uname)" == "Darwin" ]; then
     # macOS
-    BASE_DIR="/Users/$USER/wpdata"
+    BASE_DIR="/Users/$USER/data"
 else
     # Linux
-    BASE_DIR="/home/$USER/wpdata"
+    BASE_DIR="/home/$USER/data"
 fi
 
 if [ -f "$ENV_FILE" ]; then
