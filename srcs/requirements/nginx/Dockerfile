@@ -24,4 +24,4 @@ RUN mkdir -p /var/www/html/wordpress && \
 COPY ./tools/init-nginx.sh /init-nginx.sh
 RUN chmod +x /init-nginx.sh
 
-CMD ["/init-nginx.sh"]
+ENTRYPOINT ["/init-nginx.sh"]
